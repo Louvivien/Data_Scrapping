@@ -1,51 +1,35 @@
-require 'Nokogiri'
-require 'open-uri'
+require 'watir'
 require 'pry'
-require 'mechanize'
 
-agent = Mechanize.new
-page = agent.get('http://mon-incubateur.com/site_incubateur/incubateurs/1/#')
+browser = Watir::Browser.new(:firefox)
+my_link = 'http://mon-incubateur.com/site_incubateur/incubateurs/1/#'
+browser.goto my_link
 
-my_hash = {}
+sleep(2) #Give two seconds to load the page
+
+my_incubator = []
 
 #Ma boucle qui fait les 24 pages du site
 k = 1
 while k < 24
-
-  incubator_name = page.css("div#incubators_list table p a:nth-of-type(1)")
-  length = incubator_name.length - 2
-
-#Je soustrait -2 pour éviter que ca bug
-
-  i = 0
-  (0...length).step(2) do |i|
-
-    a = incubator_name[i+1].text
-    b = incubator_name[i+2].text
-
-    my_hash[a] = b
-
-  end
-
-puts my_hash
-
-post_links = page.links.find_all { |l|
- unless l.text == "Suivant >"
- else
-  page = k + 1
-  url = "http://mon-incubateur.com/site_incubateur/incubateurs/#{page}/#"
-    binding.pry
-    agent.get(url)
-    abort
-  end
-}
-k = k + 1
+a = browser.div(id:"incubators_list").spans
+a.each do |x|
+  my_incubator << x.text
 end
 
 
 
 
-# Click on one of our post links and store the response
-post = post_links[1].click
-doc = page.parser # Same as Nokogiri::HTML(page.body)
-p doc
+k = k + 1
+u = k.to_s
+script_adress = "Element.show('network_navigate_search'); new Ajax.Request('/site_incubateur/incubateurs_inside/"+ u +"',
+{asynchronous:true, evalScripts:true, method:'get', onSuccess:function(request){Element.hide('network_navigate_search');},
+parameters:'text_search_filter=' + encodeURIComponent(document.getElementById('text_search_filter').value) + '&zip=' + '&page="+ u +"'}); return false;"
+
+browser.execute_script(script_adress)
+
+
+end
+
+puts my_incubator
+browser.close

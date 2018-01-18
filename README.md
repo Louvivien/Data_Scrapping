@@ -13,3 +13,4 @@
 
 <p>It scraps the name and the ZIP code of the French incubators on this website http://mon-incubateur.com</p>
 <p>It has a loop to go through the whole 24 pages.</p>
+<p>For the moment it just gets the name, no zipcode so far.</p>
