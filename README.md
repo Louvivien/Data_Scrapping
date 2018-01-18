@@ -7,4 +7,4 @@
 >
 <p>this program is very simple.</p><br>
 <p>It creates a hash with the cryptocurrency name as a key and its price as a value</p>
-<p>Work in progress : it runs every hours</p>
+<p>Moreover, thanks to the gem <strong>Whenever</strong>, it runs every hours</p>

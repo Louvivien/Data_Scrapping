@@ -1,7 +1,7 @@
-every :hour do
+every 1.hour do
 
-runner "crypto_price.rb"
-
+  set :output, "/Users/mathieu/Desktop/THP/D9_Scrapping/cron.log"
+  command "ruby '/Users/mathieu/Desktop/THP/D9_Scrapping/crypto_price.rb'"
 
 end
 
