@@ -15,4 +15,5 @@
 <p>It has a loop to go through the whole 24 pages.</p>
 <p>For the moment it just gets the name, no zipcode so far.</p>
 <p>Please, use watir gem to run this script:</p>
-<p>Type gem install watir in your terminal as well as gecko driver and move it in your /usr/local/bin folder.</p>
+<p>Type gem install watir in your terminal </p>
+<p> Install geckodriver: https://github.com/mozilla/geckodriver/releases and type sudo mv ~/Downloads/geckodriver /usr/bin/geckodriver if you are on linux or sudo mv ~/Downloads/geckodriver /usr/bin/local/geckodriver if you are running on macOs </p>
