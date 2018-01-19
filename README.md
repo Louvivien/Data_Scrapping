@@ -14,3 +14,5 @@
 <p>It scraps the name and the ZIP code of the French incubators on this website http://mon-incubateur.com</p>
 <p>It has a loop to go through the whole 24 pages.</p>
 <p>For the moment it just gets the name, no zipcode so far.</p>
+<p>Please, use watir gem to run this script:</p>
+<p>Type gem install watir in your terminal.</p>

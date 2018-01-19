@@ -17,9 +17,6 @@ a.each do |x|
   my_incubator << x.text
 end
 
-
-
-
 k = k + 1
 u = k.to_s
 script_adress = "Element.show('network_navigate_search'); new Ajax.Request('/site_incubateur/incubateurs_inside/"+ u +"',
